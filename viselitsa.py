@@ -57,7 +57,15 @@ def ProverkaVvod (Vvod):
 #4 функция
 def playAgain(play):
     print('Хотите ли вы сыграть ещё? Да или нет')
-    return input(). lower()
+    return input().lower()
+#2 функция
+def displayBoard(misLetters,newLetters,secrWord):
+ print(HANGMANPICS(len(misLetters)))
+ print()
+ blanks = len(secrWord)
+ for i in range(len(secrWord)):
+  if secrWord(i) in newLetters:
+  
       
    
 
