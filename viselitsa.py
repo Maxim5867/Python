@@ -58,6 +58,17 @@ def ProverkaVvod (Vvod):
 def playAgain(play):
     print('Хотите ли вы сыграть ещё? Да или нет')
     return input(). lower()
+#2 функция
+def displayBoard(missedLetters,correctLetters,secretLetters):
+ print(HANGMANPICS(len(missedLetters)))
+ print()
+ blanks = '_' ' len(secretword)
+ for i in range(len(secretword)):
+  if secretWord(i) incorrectLetters:
+   blanks = blanks(:i) + secretWord(i) + blanks(i+i:)
+ for letter in blanks:
+   print(letter,end=' ')
+ print()
       
    
 
