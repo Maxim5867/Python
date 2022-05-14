@@ -41,6 +41,27 @@ words ='скунс баран папуас опосум бык корова ко
 def RandomWord(wordSpisok):
     wIndex = random.randit(0, len(wordSpisok)-1)
     return wordSpisok[wIndex]
+#2 функция
+def displayBoard(errorB,yesB,sicretS, prostB):
+    print(HANGMANPICS[len(errorB)])
+    print()
+    print('Ошибочные буквы:',end=' ')
+    for letter in errorB:
+        print(letter,end=' ')
+    print()
+    slovo = '_'*len(sicretS)
+    for sl in range(len(sicretS)):
+        if sicretS[sl] in yesB:
+            slovo = slovo[:sl]+sicretS[sl]+slovo[sl+1:] 
+    print('Секретное слово:',end=' ')
+    for pr in prostB:
+        print(pr,end=' ')
+    print()
+eB = 'клфу'
+yB = 'о'
+sS = 'ворон'
+pB = '_о_о_'
+displayBoard(eB,yB,sS,pB)
 #проверка 2 функции(3 функция)
 def ProverkaVvod (Vvod):
     while True:
@@ -55,32 +76,22 @@ def ProverkaVvod (Vvod):
         else:
             return k
 #4 функция
-def playAgain(play):
+def playAgain():
     print('Хотите ли вы сыграть ещё? Да или нет')
-<<<<<<< HEAD
-    return input().lower()
-#2 функция
-def displayBoard(misLetters,newLetters,secrWord):
- print(HANGMANPICS(len(misLetters)))
- print()
- blanks = len(secrWord)
- for i in range(len(secrWord)):
-  if secrWord(i) in newLetters:
-  
-=======
-    return input(). lower()
-#2 функция
-def displayBoard(missedLetters,correctLetters,secretLetters):
- print(HANGMANPICS(len(missedLetters)))
- print()
- blanks = '_' ' len(secretword)
- for i in range(len(secretword)):
-  if secretWord(i) incorrectLetters:
-   blanks = blanks(:i) + secretWord(i) + blanks(i+i:)
- for letter in blanks:
-   print(letter,end=' ')
- print()
->>>>>>> 2ac849de0ddeb35ab31d25f025270e79726eba8c
+    while True:
+        otvet = input(). lower()
+        if(otvet == 'да') or (otvet == 'д') or (otvet == 'yes') or (otvet == 'y'):
+            return True
+        elif(otvet == 'нет') or (otvet == 'н') or (otvet == 'no') or (otvet == 'n'):
+            return False
+        else:
+            print('''Я вас не понял, напишите пожалуйста да или нет''')
+
+
+
+    
+
+
       
    
 

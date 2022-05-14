@@ -17,7 +17,7 @@ def myIst():
     в каком наперстке шарик''')
 
 def myGames():
-    select = random.radint(1,3)
+    select = random.randint(1,3)
     print('''Введите число для выбора наперстка "1", "2", "3".''')
     vybor = input()
     while vybor !='1' and vybor != '2' and vybor !='3':
