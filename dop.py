@@ -1,7 +1,5 @@
-from dis import dis
 import random
 HANGMANPICS = ['''
-
  +---+
      |
      |
@@ -43,10 +41,10 @@ HANGMANPICS = ['''
 / \  |
     ---''','''
 +---+
-[0]  |
-/|\  |
-/ \  |
-    ---''','''
+[0] |
+/|\ |
+/ \ |
+   ---''','''
 +---+
 [0]- |
 /|\  |
@@ -57,19 +55,37 @@ HANGMANPICS = ['''
 /|\- |
 / \  |
     ---''']
-def LevelVibor(LVL):
+
+def LevelVibor():
     print('Выберите уровень сложности')
-    print('Введите l для легкого')
-    print('Введите s для среднего')
-    print('Введите t для тяжелого')
+    print('Введите "L" для легкого')
+    print('Введите "S" для среднего')
+    print('Введите "T" для тяжелого')
     while True:
         otv = input().upper()
         if len(otv) !=1:
             print('Введите только одну букву')
-        elif otv in LVL:
-            print('Введите букву, а не другой символ')
-        elif otv not in 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя':
-            print('Введите только букву, а не другой символ')
+        elif otv not in 'LST':
+            print('Введите "L" для легкого'
+    'Введите "S" для среднего'
+    'Введите "T" для тяжелого')
         else:
             return otv
+
+def deletVis(urS):
+    urS = LevelVibor()
+    if LevelVibor == 'S':
+        del HANGMANPICS[10]
+        del HANGMANPICS[9]
+    elif LevelVibor == 'T':
+        del HANGMANPICS[10]
+        del HANGMANPICS[9]
+        del HANGMANPICS[8]
+        del HANGMANPICS[7]
+
+bS = LevelVibor()
+deletVis(bS)
+
+for i in range(len(HANGMANPICS)-1):
+    print(HANGMANPICS[i])
             

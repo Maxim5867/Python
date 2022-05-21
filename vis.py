@@ -35,7 +35,7 @@ HANGMANPICS = ['''
  +---+
  0   |
 /|\  |
-/ \   |
+/ \  |
     ---''']
 words ='скунс баран папуас опосум бык корова козел кошка собака волк воробей гусь голубь' .split()
 #1 функция
@@ -53,8 +53,12 @@ def displayBoard(errorB,yesB,sicretS):
     slovo = '_'*len(sicretS)
     for sl in range(len(sicretS)):
         if sicretS[sl] in yesB:
-            slovo = slovo[:sl]+sicretS[sl]+slovo[sl+1:] 
-    print('Секретное слово:',end=' ')
+            slovo = slovo[:sl]+sicretS[sl]+slovo[sl+1:]
+
+    for ls in slovo:
+        print(ls, end=' ')
+    print() 
+
 #проверка 2 функции(3 функция)
 def ProverkaVvod(Vvod):
     while True:
@@ -89,7 +93,7 @@ while True:
     displayBoard(errorB, yesB,sicretS)
 
     bukva = ProverkaVvod(errorB+yesB)
-    if bukva in yesB:
+    if bukva in sicretS:
         yesB = yesB + bukva
         ssYes = True
         for i in range(len(sicretS)):
