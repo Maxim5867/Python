@@ -58,7 +58,7 @@ def LevelVibor():
         else:
             return otv
 
-def deletVis(urS):
+def deletVis(urS,hangP):
     urS = LevelVibor()
     if LevelVibor == 'S':
         del HANGMANPICS[10]
