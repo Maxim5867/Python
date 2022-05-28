@@ -37,11 +37,37 @@ HANGMANPICS = ['''
 /|\  |
 / \  |
     ---''']
-words ='скунс баран папуас опосум бык корова козел кошка собака волк воробей гусь голубь' .split()
+words = {'животные':'скунс баран папуас опосум бык корова козел кошка собака волк воробей гусь голубь' .split(),
+'цвета':'оранжевый голубой синий бирюзовый фиолетовый черный белый коричневый зеленый красный желтый' .split(),
+'овощи':'помидор огурец картофель кабачок капуста перец чеснок лук морковь' .split(),
+'фигуры':'параллелограмм квадрат прямоугольник треугольник трапеция овал ромб четырехугольник' .split()}
 #1 функция
 def RandomWord(wordSpisok):
-    wIndex = random.randint(0, len(wordSpisok)-1)
-    return wordSpisok[wIndex]
+    wordKey = random.choice(list(wordSpisok.keys())) 
+    wIndex = random.randint(0, len(wordSpisok[wordKey])-1)
+    return [wordSpisok[wordKey][wIndex],wordKey]
+def LevelVibor():
+    while True:
+        otv = input().upper()
+        if len(otv) !=1:
+            print('Введите только одну букву')
+        elif otv not in 'LST':
+            print('Введите "L" для легкого'
+    'Введите "S" для среднего'
+    'Введите "T" для тяжелого')
+        else:
+            return otv
+
+def deletVis(urS):
+    urS = LevelVibor()
+    if LevelVibor == 'S':
+        del HANGMANPICS[10]
+        del HANGMANPICS[9]
+    elif LevelVibor == 'T':
+        del HANGMANPICS[10]
+        del HANGMANPICS[9]
+        del HANGMANPICS[8]
+        del HANGMANPICS[7]
 #2 функция
 def displayBoard(errorB,yesB,sicretS):
     print(HANGMANPICS[len(errorB)])
@@ -83,13 +109,21 @@ def playAgain():
             return False
         else:
             print('''Я вас не понял, напишите пожалуйста да или нет''')
+bS = LevelVibor()
+deletVis(bS)
+
+
 
 errorB = ''
 yesB = ''
-sicretS = RandomWord(words)
+sicretS,keyWords = RandomWord(words)
 print(sicretS)
 gameOver = False
 while True:
+    if bS == 'L':
+        print('Классификация слов:' +keyWords)
+
+
     displayBoard(errorB, yesB,sicretS)
 
     bukva = ProverkaVvod(errorB+yesB)
@@ -115,7 +149,7 @@ while True:
         if playAgain():
             errorB = ''
             yesB = ''
-            sicretS = RandomWord(words)
+            sicretS,keyWords = RandomWord(words)
             gameOver = False
         else:
             break
