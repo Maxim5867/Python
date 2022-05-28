@@ -3,9 +3,9 @@ from time import time
 import random
 HORSESKACHKI = ['''
         
-      /( 
-        
-
+       /()
+   \____|
+    | |''',
 
 ]
 def PredIst():
