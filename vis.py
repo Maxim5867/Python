@@ -1,6 +1,8 @@
 from dis import dis
+import hmac
 import random
-HANGMANPICS = ['''
+def sozdanieVis(hm):
+    HANGMANPICS = ['''
 
  +---+
      |
@@ -37,13 +39,18 @@ HANGMANPICS = ['''
 /|\  |
 / \  |
     ---''']
+    return HANGMANPICS
 words = {'животные':'скунс баран папуас опосум бык корова козел кошка собака волк воробей гусь голубь' .split(),
 'цвета':'оранжевый голубой синий бирюзовый фиолетовый черный белый коричневый зеленый красный желтый' .split(),
 'овощи':'помидор огурец картофель кабачок капуста перец чеснок лук морковь' .split(),
 'фигуры':'параллелограмм квадрат прямоугольник треугольник трапеция овал ромб четырехугольник' .split()}
 #1 функция
-def RandomWord(wordSpisok):
-    wordKey = random.choice(list(wordSpisok.keys())) 
+def RandomWord(wordSpisok,levS):
+    if levS == 'L':
+        s = 1
+    else:       
+        wordKey = random.choice(list(wordSpisok.keys())) 
+        
     wIndex = random.randint(0, len(wordSpisok[wordKey])-1)
     return [wordSpisok[wordKey][wIndex],wordKey]
 def LevelVibor():
@@ -59,18 +66,16 @@ def LevelVibor():
             return otv
 
 def deletVis(urS,hangP):
-    urS = LevelVibor()
     if LevelVibor == 'S':
-        del HANGMANPICS[10]
-        del HANGMANPICS[9]
+        del hangP[10]
+        del hangP[9]
     elif LevelVibor == 'T':
-        del HANGMANPICS[10]
-        del HANGMANPICS[9]
-        del HANGMANPICS[8]
-        del HANGMANPICS[7]
+        del hangP[10]
+        del hangP[9]
+        del hangP[8]
+        del hangP[7]
 #2 функция
-def displayBoard(errorB,yesB,sicretS):
-    print(HANGMANPICS[len(errorB)])
+def displayBoard(errorB,yesB,sicretS,hangP):
     print()
     print('Ошибочные буквы:',end=' ')
     for letter in errorB:
@@ -109,23 +114,23 @@ def playAgain():
             return False
         else:
             print('''Я вас не понял, напишите пожалуйста да или нет''')
-bS = LevelVibor()
-deletVis(bS)
 
 
 
+delV = True
 errorB = ''
 yesB = ''
-sicretS,keyWords = RandomWord(words)
-print(sicretS)
 gameOver = False
 while True:
+    if delV:
+        hm = sozdanieVis     
+        bS = LevelVibor()
+        deletVis(bS,hm)
+        sicretS,keyWords = RandomWord(words)
+        delV = False
     if bS == 'L':
-        print('Классификация слов:' +keyWords)
-
-
-    displayBoard(errorB, yesB,sicretS)
-
+        print('Категория слова: '+keyWords)
+    displayBoard(errorB,yesB,sicretS,hm)
     bukva = ProverkaVvod(errorB+yesB)
     if bukva in sicretS:
         yesB = yesB + bukva
@@ -140,7 +145,7 @@ while True:
             gameOver = True
     else:
         errorB = errorB + bukva
-        if len(errorB) == len(HANGMANPICS) -1:
+        if len(errorB) == len(hm) -1:
             displayBoard(errorB,yesB,sicretS)
             print('Вы проиграли. Секретное слово: '+sicretS)
             gameOver = True
@@ -149,8 +154,8 @@ while True:
         if playAgain():
             errorB = ''
             yesB = ''
-            sicretS,keyWords = RandomWord(words)
             gameOver = False
+            delV = True
         else:
             break
 
