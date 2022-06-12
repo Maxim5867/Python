@@ -1,6 +1,22 @@
 import random
-
-from dop import HANGMANPICS
+def FinalWindow(windows):
+    windows = ['''
+    **********-----**********
+    *  Игра: 'Виселица'     *
+    *  Автор: Абдин Максим  *
+    *  Версия: 2.3.0        *
+    *                       *
+    **********-----**********
+    ''']
+FinalWindow =(''' 
+**********-----**********
+*  Игра: 'Виселица'     *
+*  Автор: Абдин Максим  *
+*  Версия: 2.3.0        *
+*                       *
+**********-----********** 
+''')
+print(FinalWindow)
 def sozdanieVis():
     HANGMANPICS = ['''
  +---+
@@ -92,10 +108,10 @@ def LevelVibor():
             return otv
 
 def deletVis(urS,hangP):
-    if LevelVibor == 'S':
+    if urS == 'S':
         del hangP[10]
         del hangP[9]
-    elif LevelVibor == 'T':
+    elif urS == 'T':
         del hangP[10]
         del hangP[9]
         del hangP[8]
@@ -167,7 +183,7 @@ while True:
                 ssYes = False
                 break
         if ssYes:
-            displayBoard(errorB,yesB,sicretS)
+            displayBoard(errorB,yesB,sicretS,hm)
             print('Вы выиграли. Вы отгадали слово за '+str(len(yesB+errorB))+' количество ходов')
             gameOver = True
     else:
@@ -185,6 +201,7 @@ while True:
             delV = True
         else:
             break
+
 
         
 
