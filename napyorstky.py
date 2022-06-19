@@ -20,14 +20,16 @@ def myGames():
     select = random.randint(1,3)
     print('''Введите число для выбора наперстка "1", "2", "3".''')
     vybor = input()
-    while vybor !='1' and vybor != '2' and vybor !='3':
-        print('Необходимо ввести "1","2" или "3".')
-        vybor = input()
-    print('Ведущий поднял наперсток, который вы выбрали...')
-    time.sleep(2)
-    if select == int(vybor):
-        print('''... и под наперстком было пусто.
-        'вы проиграли' - ''')
+    while True:
+        if vybor !='1' and vybor != '2' and vybor !='3':
+            print('Необходимо ввести "1","2" или "3".')
+            vybor = input()
+            return True
+        print('Ведущий поднял наперсток, который вы выбрали...')
+        time.sleep(2)
+        if select == int(vybor):
+            print('''... и под наперстком было пусто.
+            'вы проиграли' - ''')
 
 myPred()
 doneGames = 'да'
