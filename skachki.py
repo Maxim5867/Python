@@ -1,13 +1,4 @@
-from random import random
-from time import time
 import random
-HORSESKACHKI = ['''
-        
-       /()
-   \____|
-    | |''',
-
-]
 def PredIst():
     print('''Ты пришел на 
     соревнования по скачкам''')

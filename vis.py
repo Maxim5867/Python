@@ -1,5 +1,4 @@
 import random
-from telnetlib import TSPEED
 def StartWindow(windows):
     windows = ['''
     **********-----**********
