@@ -1,66 +1,54 @@
 import random
 def sozdaniehorse():
     HORSES = ['''
- [1]
- [2]
- [3]
- [4]''','''
-       [1]
-      [2]
-            [3]
-     [4]''','''
-                      [1]
-                [2]
-                             [3]
-                      [4]''','''
-                                    [1]
-                                   [2]  
-                                                   [3] ФИНИШ!
-                                              [4]''' 
+ [Первая]
+ [Вторая]
+ [Третья]
+ [Четвертая]''','''
+       [Первая]
+      [Вторая]
+            [Третья]
+     [Четвёртая]''','''
+                      [Первая]
+                [Вторая]
+                             [Третья]
+                      [Четвертая]''','''
+                                    [Первая]
+                                   [Вторая]  
+                                                   [Третья] ФИНИШ!
+                                              [Четвёртая]''' 
                                                                                                                                
 
     return HORSES
 
-words = {'животные':'скунс баран папуас опосум бык корова козел кошка собака волк воробей гусь голубь' .split(),
-'цвета':'оранжевый голубой синий бирюзовый фиолетовый черный белый коричневый зеленый красный желтый' .split(),
-'овощи':'помидор огурец картофель кабачок капуста перец чеснок лук морковь' .split(),
-'фигуры':'параллелограмм квадрат прямоугольник треугольник трапеция овал ромб четырехугольник' .split()}
+horse = {'лошади' 'первая', 'вторая', 'третья','четвертая' .split()}
 #1 функция
-def RandomWord(wordSpisok,levS):
-    if levS == 'L':
-        for i in range(len(list(wordSpisok.keys()))):        #range(len(list(wordSpisok.keys()))):
-            print('Введите '+str(i)+' для '+list(wordSpisok.keys())[i])
+def RandomHorse(HOrseSpisok,hore):
+    if hore == '1':
+        for i in range(len(list(HOrseSpisok .keys()))):        #range(len(list(HOrseSpisok.keys()))):
+            print('Введите '+str(i)+' для '+list(HOrseSpisok.keys())[i])
         vybK = input()
         vybK = int(vybK)
-        wordKey = list(wordSpisok.keys())[vybK]
+        wordKey = list(HOrseSpisok.keys())[vybK]
     else:    
-        wordKey = random.choice(list(wordSpisok.keys())) 
-    wIndex = random.randint(0, len(wordSpisok[wordKey])-1)
-    return [wordSpisok[wordKey][wIndex],wordKey]
+        wordKey = random.choice(list(HOrseSpisok.keys())) 
+    wIndex = random.randint(0, len(HOrseSpisok)[wordKey])-1)
+    return [HOrseSpisok[wordKey][wIndex],wordKey]
 
-def LevelVibor():
-    print('Выберите уровень сложности')
-    print('Введите "L" для легкого')
-    print('Введите "S" для среднего')
-    print('Введите "T" для тяжелого')
+def HoRseVibor():
+    print('Выберите номер лошади')
+    print('Введите "1" для первой')
+    print('Введите "2" для второй')
+    print('Введите "3" для третьей')
+    print('Введите "4" для четвёртой')
     while True:
         otv = input().upper()
         if len(otv) !=1:
             print('Введите только одну букву')
         elif otv not in 'LST':
-            print('Введите "L", "S" или "T"')
+            print('Введите "1", "2", "3" или "4"')
         else:
             return otv
-
-def deletVis(urS,hangP):
-    if urS == 'S':
-        del hangP[10]
-        del hangP[9]
-    elif urS == 'T':
-        del hangP[10]
-        del hangP[9]
-        del hangP[8]
-        del hangP[7]
 #2 функция
 def displayBoard(errorB,yesB,sicretS,hangP):
     print(hangP[len(errorB)])
