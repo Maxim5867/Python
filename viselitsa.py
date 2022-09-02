@@ -64,6 +64,15 @@ def StavkaHorse():
           else:
               return stavka
 #проверка 2 функции(3 функция)
+def ProverkaWin():
+    while True:
+          wins = input()
+          if HoRseVibor != RandomHorse:
+              print('Вы проиграли')
+          elif HoRseVibor == RandomHorse:
+              print('Вы выиграли') 
+          else:
+              return wins        
 def ProverkaSummi(Vvod):
     while True:
         Vvo = input('Введите букву')
