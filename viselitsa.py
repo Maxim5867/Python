@@ -44,30 +44,27 @@ def HoRseVibor():
     while True:
         otv = input().upper()
         if len(otv) !=1:
-            print('Введите только одну букву')
-        elif otv not in 'LST':
+            print('Введите только одну цифру')
+        elif otv not in '1234':
             print('Введите "1", "2", "3" или "4"')
         else:
             return otv
 #2 функция
-def displayBoard(errorB,yesB,sicretS,hangP):
-    print(hangP[len(errorB)])
-    print()
-    print('Ошибочные буквы:',end=' ')
-    for letter in errorB:
-        print(letter,end=' ')
-    print()
-    slovo = '_'*len(sicretS)
-    for sl in range(len(sicretS)):
-        if sicretS[sl] in yesB:
-            slovo = slovo[:sl]+sicretS[sl]+slovo[sl+1:]
 
-    for ls in slovo:
-        print(ls, end=' ')
-    print() 
-
+def StavkaHorse():
+    print('У вас есть 1000 рублей')
+    print('Минимальная ставка 250 рублей')
+    print('Напишите сколько денег вы хотите поставить')
+    while True:
+          stavka = input()
+          if stavka not in '1234567890'
+              print('Введите любое число от 250 до 1000')
+          elif stavka <250:
+              print('Введите число больше 250')
+          else:
+              return stavka
 #проверка 2 функции(3 функция)
-def ProverkaVvod(Vvod):
+def ProverkaSummi(Vvod):
     while True:
         Vvo = input('Введите букву')
         Vvo = Vvo.lower()
@@ -93,32 +90,3 @@ def playAgain():
 
 
 
-delV = True
-errorB = ''
-yesB = ''
-gameOver = False
-while True:
-    if delV:
-        hm = sozdanieVis()     
-        bS = LevelVibor()
-        deletVis(bS,hm)
-        sicretS,keyWords = RandomWord(words,bS)
-        delV = False
-    if bS == 'L':
-        print('Категория слова: '+keyWords)
-    displayBoard(errorB,yesB,sicretS,hm)
-    bukva = ProverkaVvod(errorB+yesB)
-    if bukva in sicretS:
-        yesB = yesB + bukva
-        ssYes = True
-        for i in range(len(sicretS)):
-            if sicretS[i] not in yesB:
-                ssYes = False
-                break
-        if ssYes:
-            displayBoard(errorB,yesB,sicretS,hm)
-            print('Вы выиграли. Вы отгадали слово за '+str(len(yesB+errorB))+' количество ходов')
-            gameOver = True
-    else:
-        errorB = errorB + bukva
-        if len(errorB) 
