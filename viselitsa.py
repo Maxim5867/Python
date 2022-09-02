@@ -52,6 +52,7 @@ def HoRseVibor():
 #2 функция
 
 def StavkaHorse():
+    money = input()
     print('У вас есть 1000 рублей')
     print('Минимальная ставка 250 рублей')
     print('Напишите сколько денег вы хотите поставить')
@@ -75,16 +76,10 @@ def ProverkaWin():
               return wins        
 def ProverkaSummi(Vvod):
     while True:
-        Vvo = input('Введите букву')
-        Vvo = Vvo.lower()
-        if len(Vvo)!=1:
-            print('Введите только одну букву')
-        elif Vvo in Vvod:
-            print('Введите букву, а не другой символ')
-        elif Vvo not in 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя':
-            print('Введите только букву, а не другой символ')
-        else:
-            return Vvo
+       if HoRseVibor != RandomHorse:
+           money - 500
+       elif HoRseVibor == RandomHorse:
+           money + 500
 #4 функция
 def playAgain():
     print('Хотите ли вы сыграть ещё? Да или нет')
@@ -96,6 +91,6 @@ def playAgain():
             return False
         else:
             print('''Я вас не понял, напишите пожалуйста да или нет''')
-
+        break
 
 
